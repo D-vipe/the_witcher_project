@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text&display=swap')
+
+html
+  font-family: 'Crimson Text', serif
+  height: 100%
+  min-height: 100%
+
+body
+  height: 100%
+  min-height: auto
+  #root
+    @extend body
+
+div, a, span, p
+  font-family: 'Crimson Text', sans-serif
+  font-style: normal
+  font-weight: normal
+  background: linear-gradient(180deg, #FFD28D 47.92%, #352000 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+
+.App
+  height: 100%
+  min-height: inherit
+  text-align: center
+  background: url('./bg.png') center no-repeat
+  background-size: cover
