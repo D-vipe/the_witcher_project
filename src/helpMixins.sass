@@ -1,0 +1,12 @@
+@mixin transition-opt($type, $value)
+  -webkit-transition: #{$type} #{$value}
+  -moz-transition: #{$type} #{$value}
+  -ms-transition: #{$type} #{$value}
+  -o-transition: #{$type} #{$value}
+  transition: #{$type} #{$value}
+
+@keyframes fadeAppear
+  0%
+    transform: scale(0)
+  100%
+    transform: scale(1)

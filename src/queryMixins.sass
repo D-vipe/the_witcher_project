@@ -1,16 +1,25 @@
 $mobile-width: 320px
 $tablet-width: 768px
-$desktop-width: 1024px
+$small-laptop-width: 1024px
+$medium-laptop-width: 1440px
+$full-hd-width: 1920px
 
 @mixin mobile
   @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px})
     @content
 
 @mixin tablet
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})
+  @media (min-width: #{$tablet-width}) and (max-width: #{$small-laptop-width - 1px})
     @content
 
+@mixin small-laptop
+  @media (min-width: #{$small-laptop-width}) and (max-width: #{$medium-laptop-width - 1px})
+    @content
+
+@mixin medium-laptop
+  @media (min-width: #{$medium-laptop-width}) and (max-width: #{$full-hd-width - 1px})
+    @content
 
 @mixin desktop
-  @media (min-width: #{$desktop-width})
+  @media (min-width: #{$full-hd-width})
     @content

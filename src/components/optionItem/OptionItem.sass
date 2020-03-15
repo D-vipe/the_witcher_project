@@ -1,26 +1,40 @@
 @import '../../queryMixins'
+@import "../../helpMixins"
 
-.country-select__wrapper
+.item-select__wrapper
   width: 100%
   display: flex
-  align-items: center
+  flex-flow: wrap
+  align-items: flex-start
   justify-content: center
-  margin-top: 80px
+  margin-top: 50px
+  margin-bottom: 20px
+  +mobile
+    margin-top: 40px
+    margin-bottom: 0
+  +tablet
+    margin-top: 30px
+    margin-bottom: 0
+  +medium-laptop
+    margin-top: 30px
+    margin-bottom: 20px
 
-  .country-select__item
+  .element-select__item
+    position: relative
     text-decoration: none
+    margin: 0 50px 25px
+    +mobile
+      margin: 0 10px 25px
+    +tablet
+      margin: 20px 14px 25px
+    +medium-laptop
+      margin: 0 30px 25px
     &:hover
       text-decoration: none
       .topRowVassal
         -webkit-box-shadow: 0 0 16px 3px rgba(219,174,100,1)
         -moz-box-shadow: 0 0 16px 3px rgba(219,174,100,1)
         box-shadow: 0 0 16px 3px rgba(219,174,100,1)
-
-      //p
-      //  transition: all .3s
-      //  background: linear-gradient(180deg, #F4DCB3 0%, #5C3D06 100%)
-      //  -webkit-background-clip: text
-      //  -webkit-text-fill-color: transparent
 
 
     &:focus
@@ -30,13 +44,21 @@
       font-family: 'Crimson Text', sans-serif
       font-style: normal
       font-weight: normal
-      margin-top: 10px
+      margin-top: 30px
+      margin-bottom: 0
       font-size: 32px
-      //line-height: 110%
       text-align: center
-      //background: linear-gradient(180deg, #FFD28D 47.92%, #352000 100%)
-      //-webkit-background-clip: text
-      //-webkit-text-fill-color: transparent
+      +mobile
+        font-size: 19px
+        margin-top: 10px
+
+      &.small-text
+        font-size: 17px
+        letter-spacing: 0.035em
+        margin-top: 0
+        +mobile
+          font-size: 12px
+
 
     .topRowVassal
       cursor: pointer
@@ -45,8 +67,48 @@
       border: 3px solid #DBAE64
       border-radius: 50%
       margin: 0 38.5px
-      -webkit-transition: all .3s
-      -moz-transition: all .3s
-      -ms-transition: all .3s
-      -o-transition: all .3s
-      transition: all .3s
+      +transition-opt('all', '.2s')
+      +mobile
+        max-width: 140px
+        max-height: 140px
+        margin: 0
+      +tablet
+        max-width: 181px
+        max-height: 181px
+        margin: 0
+      +small-laptop
+        max-width: 181px
+        max-height: 181px
+        margin: 0
+      +medium-laptop
+        max-width: 135px
+        max-height: 135px
+
+    .vassal-count-wrapper
+      display: flex
+      align-items: center
+      justify-content: center
+      position: absolute
+      bottom: 90px
+      left: 30px
+      background: url('./count_bg.png') center no-repeat
+      width: 70px
+      height: 70px
+      z-index: 10
+      +mobile
+        width: 43px
+        height: 43px
+        background-size: contain
+        bottom: 60px
+        left: 0
+      +tablet
+        left: -10px
+
+      .vassal-count
+        font-size: 29px
+        line-height: 1
+        margin-top: -5px
+        +mobile
+          font-size: 14px
+          margin-top: 0
+

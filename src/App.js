@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeScreen from './components/homeScreen/HomeScreen';
 import RosterScreen from './components/rosterScreen/RosterScreen';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
 import './App.sass';
 import data from './input.js';
 
@@ -33,7 +33,6 @@ class App extends React.Component {
     this.setState({
         dataGovernments: processedData
     });
-    console.log(123);
   }
 
   render () {
@@ -41,8 +40,9 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route
-              exact path="/"
-              render={(props) => <HomeScreen {...props} governments={this.state.dataGovernments}/>}
+              exact
+              path="/"
+              render={(props) => <HomeScreen {...props} governments={this.state.dataGovernments} />}
             />
             <Route
               path="/hierarchy/:targetId"

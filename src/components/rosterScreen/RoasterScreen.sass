@@ -1,8 +1,32 @@
+@import '../../helpMixins'
+@import '../../queryMixins'
+
+.roster-screen
+  transform: scale(0)
+  +transition-opt('all', '.2s')
+  animation: fadeAppear 1s forwards
+
 .linkButton
   font-size: 26px
-  //line-height: 33px
+  cursor: pointer
+  height: 33px
+  line-height: 33px
   letter-spacing: 0.035em
   margin-top: 100px
+  border-bottom: 1px solid rgba(219, 174, 100, .2)
+  +transition-opt('all', '.3s')
+  +mobile
+    font-size: 17px
+    margin-top: 20px
+  +tablet
+    margin-top: 66px
+  +small-laptop
+    margin-top: 60px
+  +medium-laptop
+    margin-top: 60px
+  &:hover
+      border-bottom: 1px solid rgba(219, 174, 100, 1)
+
 
 .homeButton
   display: inline-block
@@ -11,6 +35,20 @@
   height: 79px
   width: 88px
   margin-top: 100px
+  +transition-opt('transform', '.3s')
+  +mobile
+    width: 40px
+    height: 36px
+    margin-top: 20px
+  +tablet
+    margin-top: 66px
+  +small-laptop
+    margin-top: 60px
+  +medium-laptop
+    margin-top: 60px
+  &:hover
+    transform: scale(1.2)
+
 
 .navigation-block__controls
   display: flex
@@ -19,9 +57,6 @@
 
   .navigation-link__left
     display: block
-    //background: url('./vector_arrow.png') center no-repeat
-    //height: 22px
-    //width: 12.5px
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
@@ -30,20 +65,72 @@
     margin-top: 90px
     margin-right: 60px
     margin-left: 0
+    +transition-opt('all', '.1s')
+    +mobile
+      padding: 5px 10px
+      margin-right: 20px
+
+    &:hover
+      border: 1px solid rgba(219, 174, 100, 1)
+
 
   .navigation-link__right
     @extend .navigation-link__left
     transform: rotate(180deg)
     margin-right: 0
     margin-left: 60px
+    +mobile
+      margin-left: 20px
 
 
   .navigationTargetImg
-    width: 413px
-    height: 413px
-    margin-top: 80px
+    width: 363px
+    height: 363px
+    margin-top: 70px
     border: 3px solid #DBAE64
     border-radius: 50%
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
+    +mobile
+      max-width: 180px
+      max-height: 180px
+    +tablet
+      margin-top: 60px
+    +small-laptop
+      width: 243px
+      height: 243px
+      margin-top: 60px
+    +medium-laptop
+      width: 263px
+      height: 263px
+      margin-top: 60px
 
+.curr-target-name
+  margin-top: 10px
+  p
+    font-size: 56px
+    line-height: 63px
+    +mobile
+      font-size: 41px
+      line-height: 49px
+    +small-laptop
+      font-size: 49px
+      line-height: 56px
+    +medium-laptop
+      font-size: 49px
+      line-height: 56px
+
+.timeline-block
+  height: 130.5px
+  margin-top: 40px
+  background: url('./img/timelineDesktop.png') center no-repeat
+  +mobile
+    height: 65.5px
+    margin-top: 0
+    background: url('./img/timelineMobile.png') center no-repeat
+  +tablet
+    height: 130.5px
+    margin-top: 10px
+  +medium-laptop
+    margin-top: 25px
+    margin-bottom: 25px
