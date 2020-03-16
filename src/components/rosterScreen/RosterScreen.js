@@ -175,9 +175,14 @@ class RosterScreen extends React.Component {
               <button className="homeButton" onClick={backFunc}> </button>
             </div>
           </div>
-          <div className="d-flex w-100 justify-content-center timeline-block">
-
-          </div>
+          {
+            (() => {
+              if(this.state.loaded && this.state.selectElements.children.length > 0) {
+                return ( <div className="d-flex w-100 justify-content-center timeline-block">
+                </div>)
+              }
+            })()
+          }
           <div className="row">
             {
               (() => {
