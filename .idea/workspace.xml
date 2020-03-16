@@ -2,22 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d99935a0-3776-4017-918c-fd97583a1680" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/optionItem/count_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/rosterScreen/img/timelineDesktop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/rosterScreen/img/timelineMobile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fake_img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpMixins.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/topRowCarousel/img/vector_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/optionItem/OptionItem.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/optionItem/OptionItem.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/rosterScreen/vector_arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rosterScreen/img/vector_arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/queryMixins.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/queryMixins.sass" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,7 +26,7 @@
     <session id="-838389681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
@@ -41,18 +35,18 @@
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="27" />
+          <entry key="js" value="38" />
           <entry key="json" value="2" />
           <entry key="jsx" value="1" />
           <entry key="png" value="14" />
-          <entry key="sass" value="19" />
+          <entry key="sass" value="26" />
           <entry key="svg" value="1" />
           <entry key="txt" value="1" />
           <entry key="xml" value="3" />
@@ -64,10 +58,10 @@
           <entry key="Image" value="14" />
           <entry key="JSON" value="2" />
           <entry key="JSX Harmony" value="1" />
-          <entry key="JavaScript" value="27" />
+          <entry key="JavaScript" value="38" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="1" />
-          <entry key="Sass" value="19" />
+          <entry key="Sass" value="26" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -79,17 +73,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="72" />
-          <entry key="js" value="8314" />
+          <entry key="js" value="11888" />
           <entry key="jsx" value="23" />
-          <entry key="sass" value="3289" />
+          <entry key="sass" value="3548" />
+          <entry key="txt" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="75" />
           <entry key="JSX Harmony" value="23" />
-          <entry key="JavaScript" value="8311" />
-          <entry key="Sass" value="3289" />
+          <entry key="JavaScript" value="11885" />
+          <entry key="PLAIN_TEXT" value="26" />
+          <entry key="Sass" value="3548" />
         </counts>
       </usages-collector>
     </session>
@@ -97,10 +93,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/homeScreen/HomeScreen.sass">
+        <entry file="file://$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="357">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,26 +107,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="1530">
+              <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/queryMixins.sass">
+        <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="20" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="20" />
+            <state relative-caret-position="289">
+              <caret line="18" column="60" lean-forward="true" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="179" column="12" selection-start-line="179" selection-start-column="12" selection-end-line="179" selection-end-column="12" />
+            <state relative-caret-position="2907">
+              <caret line="175" column="18" lean-forward="true" selection-start-line="175" selection-start-column="18" selection-end-line="175" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -138,45 +152,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
+            <state relative-caret-position="1683">
+              <caret line="99" column="16" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.sass">
+        <entry file="file://$PROJECT_DIR$/src/helpMixins.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/timelineMobile.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/timelineDesktop.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>console.log</find>
-      <find>country-select__wrapper</find>
-      <find>country-select__item</find>
-      <find>transition-opt</find>
-      <find>transition</find>
-      <find>roster-screen</find>
-      <find>loaderStatus</find>
-      <find>handlePre</find>
-      <find>loader</find>
-      <find>link</find>
       <find>time</find>
       <find>vassal-</find>
       <find>71px</find>
@@ -190,13 +184,23 @@
       <find>.timeline-block {</find>
       <find>navigationTa</find>
       <find>select__wrapper</find>
-      <find>topRow</find>
       <find>Nav</find>
       <find>NavigationTar</find>
       <find>.timeline-block</find>
-      <find>element-select__item</find>
       <find>curr</find>
       <find>.curr-target-name</find>
+      <find>Link</find>
+      <find>match</find>
+      <find>mathc</find>
+      <find>ma</find>
+      <find>element-select__item</find>
+      <find>homeButton</find>
+      <find>getCurrentElements</find>
+      <find>getImageUrl</find>
+      <find>navigationTargetImg</find>
+      <find>topRow</find>
+      <find>navigationFunc</find>
+      <find>handleNavigation</find>
     </findStrings>
     <replaceStrings>
       <replace>RosterScreen</replace>
@@ -215,17 +219,19 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/helpMixins.sass" />
         <option value="$PROJECT_DIR$/src/components/loader/loade.jsx" />
-        <option value="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" />
         <option value="$PROJECT_DIR$/src/components/loader/Loader.sass" />
         <option value="$PROJECT_DIR$/src/components/loader/Loader.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js" />
-        <option value="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" />
         <option value="$PROJECT_DIR$/src/queryMixins.sass" />
         <option value="$PROJECT_DIR$/src/App.sass" />
         <option value="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.sass" />
-        <option value="$PROJECT_DIR$/src/components/optionItem/OptionItem.sass" />
+        <option value="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js" />
+        <option value="$PROJECT_DIR$/src/helper.js" />
         <option value="$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass" />
+        <option value="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" />
+        <option value="$PROJECT_DIR$/src/components/optionItem/OptionItem.sass" />
+        <option value="$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js" />
+        <option value="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -280,6 +286,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="the_witcher_hierarchy" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -320,16 +337,12 @@
               <item name="rosterScreen" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
-          <expand>
             <path>
-              <item name="the_witcher_hierarchy" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="the_witcher_hierarchy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="the_witcher_hierarchy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="topRowCarousel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -352,16 +365,17 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/loader" />
-      <recent name="$PROJECT_DIR$/src/components/rosterScreen/img" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/topRowCarousel/img" />
       <recent name="$PROJECT_DIR$/src/components/loader/img" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components/rosterScreen" />
       <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/loader" />
+      <recent name="$PROJECT_DIR$/src/components/rosterScreen/img" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -415,16 +429,24 @@
       <workItem from="1583679846695" duration="8219000" />
       <workItem from="1583777303286" duration="71000" />
       <workItem from="1584041634476" duration="8782000" />
-      <workItem from="1584129421822" duration="271000" />
+      <workItem from="1584129421822" duration="13181000" />
+      <workItem from="1584397386052" duration="149000" />
     </task>
+    <task id="LOCAL-00001" summary="prepare to rework concept">
+      <created>1584261453801</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584261453801</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45297000" />
+    <option name="totallyTimeSpent" value="58356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16420014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -451,6 +473,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="prepare to rework concept" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare to rework concept" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/webpack.config.js" />
@@ -484,48 +510,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/loader/Loader.sass" />
     <entry file="file://$PROJECT_DIR$/src/components/loader/Loader.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpMixins.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/input.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="174" column="11" selection-start-line="174" selection-start-column="2" selection-end-line="174" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -540,17 +528,23 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/Element/icon 01 desktop.png" />
-    <entry file="file://$PROJECT_DIR$/src/components/homeScreen/HomeScreen.sass">
+    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/timelineDesktop.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/timelineMobile.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.sass">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="444">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.sass">
+    <entry file="file://$PROJECT_DIR$/src/components/homeScreen/HomeScreen.sass">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="347">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -561,30 +555,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.sass">
+    <entry file="file://$PROJECT_DIR$/src/helper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        <state relative-caret-position="34">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/timelineMobile.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/img/timelineDesktop.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass">
+    <entry file="file://$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
+        <state relative-caret-position="786">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/input.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="174" column="11" selection-start-line="174" selection-start-column="2" selection-end-line="174" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="60" lean-forward="true" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="179" column="12" selection-start-line="179" selection-start-column="12" selection-end-line="179" selection-end-column="12" />
+        <state relative-caret-position="2907">
+          <caret line="175" column="18" lean-forward="true" selection-start-line="175" selection-start-column="18" selection-end-line="175" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="99" column="16" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpMixins.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

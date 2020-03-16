@@ -1,17 +1,41 @@
 import React from 'react';
 import HomeScreen from './components/homeScreen/HomeScreen';
 import RosterScreen from './components/rosterScreen/RosterScreen';
-import { Switch, Route } from 'react-router';
 import './App.sass';
 import data from './input.js';
 
 class App extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
-      dataGovernments: []
+      dataGovernments: [],
+      secondScreen: false,
+      currentTarget: null
     }
   }
+
+  /**
+   * @param itemId
+   * function listening to click on item selection
+   * changes state to render second screen
+   */
+  handleItemSelect = (itemId) => {
+    if (!this.state.secondScreen) {
+      this.setState({
+        secondScreen: true,
+        currentTarget: itemId
+      });
+    }
+  };
+
+  returnHome = () => {
+    console.log('fired!');
+    this.setState({
+      secondScreen: false,
+      currentTarget: null
+    })
+  };
 
   getGovernments() {
     if (data !== undefined || data !== null) {
@@ -38,17 +62,15 @@ class App extends React.Component {
   render () {
     return (
         <div className="App">
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) => <HomeScreen {...props} governments={this.state.dataGovernments} />}
-            />
-            <Route
-              path="/hierarchy/:targetId"
-              render={(props) => <RosterScreen {...props} allData={data} />}
-            />
-          </Switch>
+          {
+            (() => {
+              if(this.state.secondScreen) {
+                return (<RosterScreen targetId={this.state.currentTarget} backFunc={this.returnHome}/>)
+              } else {
+                return (<HomeScreen select_func={this.handleItemSelect} governments={this.state.dataGovernments}/>)
+              }
+            })()
+          }
         </div>
     )
   }

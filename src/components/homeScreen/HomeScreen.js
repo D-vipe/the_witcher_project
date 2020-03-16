@@ -24,9 +24,14 @@ class HomeScreen extends React.Component {
     }
   }
 
+  clickHandler = () => {
+    console.log('clicked!');
+  };
+
   render () {
     let {
-      governments
+      governments,
+      select_func
     } = this.props;
     return (
       <div className="FirstScreen">
@@ -40,7 +45,7 @@ class HomeScreen extends React.Component {
             {
               (() => {
                 if(this.state.loaded) {
-                  return (<OptionItem items={governments} />)
+                  return (<OptionItem select_func={select_func} items={governments} />)
                 }
               })()
             }

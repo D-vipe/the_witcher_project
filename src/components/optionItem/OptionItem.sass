@@ -21,6 +21,7 @@
 
   .element-select__item
     position: relative
+    cursor: pointer
     text-decoration: none
     margin: 0 50px 25px
     +mobile
@@ -51,6 +52,9 @@
       +mobile
         font-size: 19px
         margin-top: 10px
+      +small-laptop
+        font-size: 27px
+        margin-top: 20px
 
       &.small-text
         font-size: 17px
@@ -69,28 +73,45 @@
       margin: 0 38.5px
       +transition-opt('all', '.2s')
       +mobile
+        width: 100%
         max-width: 140px
         max-height: 140px
         margin: 0
       +tablet
+        width: 100%
         max-width: 181px
         max-height: 181px
         margin: 0
       +small-laptop
-        max-width: 181px
-        max-height: 181px
-        margin: 0
-      +medium-laptop
+        width: 100%
         max-width: 135px
         max-height: 135px
+        margin: 0
+      +medium-laptop
+        width: 100%
+        max-width: 135px
+        max-height: 135px
+
+    .img-wrapper
+      position: relative
+      min-width: 200px
+      max-width: 200px
+      display: flex
+      justify-content: center
+      +mobile
+        min-width: 140px
+        max-width: 140px
+      +desktop
+        min-width: auto
+        max-width: none
 
     .vassal-count-wrapper
       display: flex
       align-items: center
       justify-content: center
       position: absolute
-      bottom: 90px
-      left: 30px
+      bottom: -19px
+      left: 25px
       background: url('./count_bg.png') center no-repeat
       width: 70px
       height: 70px
@@ -99,10 +120,25 @@
         width: 43px
         height: 43px
         background-size: contain
-        bottom: 60px
+        bottom: 0
         left: 0
       +tablet
-        left: -10px
+        left: 5px
+        bottom: -10px
+      +small-laptop
+        left: 15px
+        bottom: -15px
+        width: 60px
+        height: 60px
+        background-size: contain
+      +medium-laptop
+        left: 25px
+        bottom: -15px
+        width: 60px
+        height: 60px
+        background-size: contain
+
+
 
       .vassal-count
         font-size: 29px
@@ -111,4 +147,11 @@
         +mobile
           font-size: 14px
           margin-top: 0
+        +tablet
+          font-size: 25px
+          margin-top: 0
+        +small-laptop
+          font-size: 24px
+        +medium-laptop
+          font-size: 24px
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import OptionItem from '../optionItem/OptionItem';
-import { Link } from 'react-router-dom';
-import './RoasterScreen.sass'
+import TopRowCarousel from '../topRowCarousel/TopRowCarousel';
+import './RoasterScreen.sass';
+import data from '../../input.js';
 
 class RosterScreen extends React.Component {
   constructor(props) {
@@ -26,20 +27,27 @@ class RosterScreen extends React.Component {
   }
 
 
-  componentDidUpdate(nextProps, nextState) {
-    if (parseInt(nextProps.match.params.targetId) !== parseInt(this.props.match.params.targetId)) {
-      this.collectData();
+  handleNavigation = (targetId, parentId) => {
+    let elements = this.getCurrentElements(data, parentId, targetId);
+    console.log(targetId);
+    console.log(parentId);
+    if (elements !== undefined) {
+      this.setState({
+        selectElements: elements,
+        parentId: parentId,
+        targetId: targetId,
+      })
     }
-    console.log(this.state.selectElements);
-  }
+  };
 
   /**
    * simple buttonclick handler
    * for history back action
    */
   handleBackAction = () => {
-    this.props.history.goBack();
-  }
+    console.log('back action');
+    // this.props.history.goBack();
+  };
 
   /**
    * An aggregate function to collect data from
@@ -48,15 +56,16 @@ class RosterScreen extends React.Component {
    * retuns new state with all necessary data set
    */
   collectData() {
-    let allData = this.props.allData,
-      targetId = this.props.match.params.targetId,
+    let {
+      targetId
+    } = this.props,
       parentId,
       elements;
 
-    parentId = this.getParentId(allData, targetId);
-    console.log(parentId);
-    console.log(targetId);
-    elements = this.getCurrentElements(allData, parentId, targetId);
+    parentId = this.getParentId(data, targetId);
+    // console.log(parentId);
+    // console.log(targetId);
+    elements = this.getCurrentElements(data, parentId, targetId);
 
     this.setState({
       selectElements: elements,
@@ -65,7 +74,6 @@ class RosterScreen extends React.Component {
       loaded: true
     });
   }
-
 
   /**
    * @param  {array} data props data passed from the parent component
@@ -76,7 +84,7 @@ class RosterScreen extends React.Component {
     let parentId = null;
     data.forEach(item => {
       if (item.id === parseInt(targetId)) {
-        parentId = item.id;
+        return item.id;
       }
     });
     return parentId;
@@ -86,7 +94,7 @@ class RosterScreen extends React.Component {
    * @param  {array} data props data passed from the parent component
    * @param  {string} targetId id of the clicked block
    * @param  {string} parentId parent id value of the target element
-   * @return {array} element new array to render roaster screen
+   * @return {{target: {}, neighbours: Array, children: Array}} elements new array to render roaster screen
    */
   getCurrentElements(data, parentId, targetId) {
     let elements = {
@@ -101,7 +109,6 @@ class RosterScreen extends React.Component {
     data.forEach(item => {
       if (item.id === parseInt(targetId)) {
         elements.target = item;
-        elements.neighbours.push(item);
       }
 
       if (parentId === null || parentId === undefined) {
@@ -122,6 +129,7 @@ class RosterScreen extends React.Component {
         elements.children.push(item);
       }
     });
+    console.log(elements);
     return elements;
   }
 
@@ -132,51 +140,18 @@ class RosterScreen extends React.Component {
    * @return {int} count counted amount of all vassal of the current item
    */
   getCountVassals(item, data){
-    let count = 0
+    let count = 0;
     data.forEach(dataEl => {
       if(parseInt(item.id) === parseInt(dataEl.parent)) {
         count++;
         count += this.getCountVassals(dataEl, data);
       }
-    })
+    });
     return count;
   }
 
-  /**
-   * @param  {str} image_name
-   * @return {func} react require of a file
-   */
-  getImageUrl(img_name) {
-    try{
-      return require('../../images/' + img_name);
-    }
-    catch(err){
-
-      return require('../../fake_img.png');
-    }
-  }
-
-  scrollNeighbours = (action) => {
-    let neighboursLength = this.state.selectElements.neighbours.length;
-    console.log(this.state.currentIndex);
-    console.log(this.state.selectElements.neighbours);
-    if (action === 'increment') {
-      this.setState({currentIndex: this.state.currentIndex++});
-      if (this.state.currentIndex >= neighboursLength) {
-        this.setState({currentIndex: 0})
-      }
-      console.log(this.state.selectElements.neighbours[this.state.currentIndex]);
-    } else {
-      if (this.state.currentIndex === 0) {
-        this.setState({currentIndex: neighboursLength - 1})
-      } else {
-        this.setState({currentIndex: this.state.currentIndex--})
-      }
-      console.log(this.state.selectElements.neighbours[this.state.currentIndex]);
-    }
-  };
-
   render () {
+    let backFunc = this.props.backFunc;
     return (
       <div className="roster-screen">
         <div className="container">
@@ -185,38 +160,19 @@ class RosterScreen extends React.Component {
               <span className="linkButton" onClick={this.handleBackAction}>Back</span>
             </div>
             <div className="col-8">
-              <div className="navigation-block">
-                <div className="navigation-block__controls">
-                  <span className="navigation-link__left" onClick={ ()=>{this.scrollNeighbours('decrement')} }>
-                    <img src={require('./img/vector_arrow.png')} alt=""/>
-                  </span>
-                  <div className="target-logo">
-                    {
-                      (() => {
-                        if(this.state.loaded)
-                          return (<img src={this.getImageUrl(this.state.selectElements.target.image)}
-                                       alt="pic" className="navigationTargetImg"/>)
-                      })()
-                    }
-                  </div>
-                  <span className="navigation-link__right" onClick={ () => {this.scrollNeighbours('increment')} } >
-                    <img src={require('./img/vector_arrow.png')} alt=""/>
-                  </span>
-                </div>
-                <div className="curr-target-name">
-                  <p className="text-center">
-                    {
-                      (() => {
-                        if(this.state.loaded)
-                          return (this.state.selectElements.target.name)
-                      })()
-                    }
-                  </p>
-                </div>
-              </div>
+              {
+                (() => {
+                  if(this.state.loaded) {
+                    return (<TopRowCarousel neighbours={this.state.selectElements.neighbours}
+                                            target={this.state.selectElements.target}
+                                            navigationFunc={this.handleNavigation}/>)
+                  }
+                })()
+              }
+
             </div>
             <div className="col-2 d-flex align-items-top justify-content-end">
-              <Link className="homeButton" exact to={'/'}> </Link>
+              <button className="homeButton" onClick={backFunc}> </button>
             </div>
           </div>
           <div className="d-flex w-100 justify-content-center timeline-block">
@@ -226,7 +182,8 @@ class RosterScreen extends React.Component {
             {
               (() => {
                 if(this.state.loaded) {
-                  return (<OptionItem items={this.state.selectElements.children}/>)
+                  return (<OptionItem select_func={this.handleNavigation}
+                                      items={this.state.selectElements.children}/>)
                 }
               })()
             }

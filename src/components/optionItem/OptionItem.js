@@ -1,6 +1,5 @@
 import React from 'react';
 import './OptionItem.sass';
-import { Link } from 'react-router-dom';
 
 class OptionItem extends React.Component {
 
@@ -14,23 +13,28 @@ class OptionItem extends React.Component {
   }
 
   render() {
+    let select_func = this.props.select_func;
+
     let items = this.props.items.map(item => {
       let image_src = OptionItem.checkImgSource(item.image);
       return (
-        <Link to={'/hierarchy/' + item.id } key={`image_block_${item.id}`} className="element-select__item">
-          <img src={image_src} alt="pic" className="topRowVassal"/>
-          {
-            (() => {
-              if (item.vassals !== null && item.vassals !== undefined && item.vassals !== 0) {
-                return ( <div className="vassal-count-wrapper">
+        <div onClick={select_func.bind(this, item.id, item.parent)} data-id={item.id} key={`image_block_${item.id}`} className="element-select__item">
+          <div className="img-wrapper">
+            <img src={image_src} alt="pic" className="topRowVassal"/>
+            {
+              (() => {
+                if (item.vassals !== null && item.vassals !== undefined && item.vassals !== 0) {
+                  return ( <div className="vassal-count-wrapper">
                            <span className="vassal-count">
                               {item.vassals}
-                           </span> 
-                          </div>   
-                          )
-              }
-            })()
-          }
+                           </span>
+                    </div>
+                  )
+                }
+              })()
+            }
+          </div>
+
           <p>{item.name}</p>
           {
             (() => {
@@ -38,7 +42,7 @@ class OptionItem extends React.Component {
                 return (<p className="small-text">{item.post}</p>)
             })()
           }
-        </Link>);
+        </div>);
     });
 
     return(
