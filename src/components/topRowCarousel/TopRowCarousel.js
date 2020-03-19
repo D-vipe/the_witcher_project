@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getImageUrl from '../../helper';
+import getImageUrl from '../../common_js/helper';
 
 class TopRowCarousel extends Component {
   constructor(props) {

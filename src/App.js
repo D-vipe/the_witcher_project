@@ -1,19 +1,21 @@
 import React from 'react';
 import HomeScreen from './components/homeScreen/HomeScreen';
 import RosterScreen from './components/rosterScreen/RosterScreen';
-import './App.sass';
+import { connect } from 'react-redux';
+import { setTopRowElements, setSecondScreen } from './actions/dataProcess';
+import './common_css/App.sass';
 import data from './input.js';
 
 class App extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      dataGovernments: [],
-      secondScreen: false,
-      currentTarget: null
-    }
-  }
+  // constructor(props){
+  //   super(props);
+  //
+  //   this.state = {
+  //     dataGovernments: [],
+  //     secondScreen: false,
+  //     currentTarget: null
+  //   }
+  // }
 
   /**
    * @param itemId
@@ -21,11 +23,8 @@ class App extends React.Component {
    * changes state to render second screen
    */
   handleItemSelect = (itemId) => {
-    if (!this.state.secondScreen) {
-      this.setState({
-        secondScreen: true,
-        currentTarget: itemId
-      });
+    if (!this.props.secondScreen) {
+      this.props.setSecondScreen(true, itemId);
     }
   };
 
@@ -54,20 +53,26 @@ class App extends React.Component {
 
   componentDidMount() {
     let processedData = this.getGovernments();
-    this.setState({
-        dataGovernments: processedData
-    });
+    this.props.setTopRowElements(processedData);
+    // this.setState({
+    //     dataGovernments: processedData
+    // });
   }
 
   render () {
+    let {
+      dataGovernments,
+      secondScreen,
+      currentTarget
+    } = this.props;
     return (
         <div className="App">
           {
             (() => {
-              if(this.state.secondScreen) {
-                return (<RosterScreen targetId={this.state.currentTarget} backFunc={this.returnHome}/>)
+              if(secondScreen) {
+                return (<RosterScreen targetId={currentTarget} backFunc={this.returnHome}/>)
               } else {
-                return (<HomeScreen select_func={this.handleItemSelect} governments={this.state.dataGovernments}/>)
+                return (<HomeScreen select_func={this.handleItemSelect} governments={dataGovernments}/>)
               }
             })()
           }
@@ -76,4 +81,19 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    dataGovernments: state.dataGovernments,
+    secondScreen: state.secondScreen,
+    currentTarget: state.currentTarget
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setTopRowElements: (data) => { dispatch(setTopRowElements(data)) },
+    setSecondScreen: (screen, target) => { dispatch(setSecondScreen(screen, target)) }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

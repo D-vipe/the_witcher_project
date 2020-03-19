@@ -8,7 +8,7 @@ class OptionItem extends React.Component {
       return require('../../images/' + img_url);
     }
     catch(err){
-      return require('../../fake_img.png');
+      return require('../../images/fake_img.png');
     }
   }
 

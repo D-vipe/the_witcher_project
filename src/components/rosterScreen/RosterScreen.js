@@ -63,8 +63,6 @@ class RosterScreen extends React.Component {
       elements;
 
     parentId = this.getParentId(data, targetId);
-    // console.log(parentId);
-    // console.log(targetId);
     elements = this.getCurrentElements(data, parentId, targetId);
 
     this.setState({
@@ -129,7 +127,7 @@ class RosterScreen extends React.Component {
         elements.children.push(item);
       }
     });
-    console.log(elements);
+    // console.log(elements);
     return elements;
   }
 
