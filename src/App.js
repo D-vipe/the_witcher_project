@@ -2,38 +2,29 @@ import React from 'react';
 import HomeScreen from './components/homeScreen/HomeScreen';
 import RosterScreen from './components/rosterScreen/RosterScreen';
 import { connect } from 'react-redux';
-import { setTopRowElements, setSecondScreen } from './actions/dataProcess';
+import {
+  setTopRowElements,
+  setSecondScreen
+} from './actions/dataProcess';
 import './common_css/App.sass';
 import data from './input.js';
 
 class App extends React.Component {
-  // constructor(props){
-  //   super(props);
-  //
-  //   this.state = {
-  //     dataGovernments: [],
-  //     secondScreen: false,
-  //     currentTarget: null
-  //   }
-  // }
+
+  componentDidMount() {
+    let processedData = this.getGovernments();
+    this.props.setTopRowElements(processedData);
+  }
 
   /**
    * @param itemId
    * function listening to click on item selection
-   * changes state to render second screen
+   * changes props to render second screen
    */
   handleItemSelect = (itemId) => {
     if (!this.props.secondScreen) {
       this.props.setSecondScreen(true, itemId);
     }
-  };
-
-  returnHome = () => {
-    console.log('fired!');
-    this.setState({
-      secondScreen: false,
-      currentTarget: null
-    })
   };
 
   getGovernments() {
@@ -51,28 +42,18 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    let processedData = this.getGovernments();
-    this.props.setTopRowElements(processedData);
-    // this.setState({
-    //     dataGovernments: processedData
-    // });
-  }
-
   render () {
     let {
-      dataGovernments,
       secondScreen,
-      currentTarget
     } = this.props;
     return (
         <div className="App">
           {
             (() => {
               if(secondScreen) {
-                return (<RosterScreen targetId={currentTarget} backFunc={this.returnHome}/>)
+                return (<RosterScreen backFunc={this.returnHome}/>)
               } else {
-                return (<HomeScreen select_func={this.handleItemSelect} governments={dataGovernments}/>)
+                return (<HomeScreen select_func={this.handleItemSelect} />)
               }
             })()
           }
@@ -85,7 +66,6 @@ const mapStateToProps = (state) => {
   return {
     dataGovernments: state.dataGovernments,
     secondScreen: state.secondScreen,
-    currentTarget: state.currentTarget
   }
 };
 

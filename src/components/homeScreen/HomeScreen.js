@@ -1,36 +1,13 @@
 import React from 'react';
 import './HomeScreen.sass';
 import OptionItem from '../optionItem/OptionItem';
+import connect from "react-redux/es/connect/connect";
 
 class HomeScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        loaded: false
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-      loaded: true
-    });
-  }
-
-  componentDidUpdate(nextProps, nextState) {
-    if (this.props.governments.length > 0) {
-      if (!this.state.loaded) {
-        this.setState({ loaded: true });
-      }
-    }
-  }
-
-  clickHandler = () => {
-    console.log('clicked!');
-  };
 
   render () {
     let {
-      governments,
+      dataGovernments,
       select_func
     } = this.props;
     return (
@@ -42,13 +19,7 @@ class HomeScreen extends React.Component {
             </div>
           </div>
           <div className="row">
-            {
-              (() => {
-                if(this.state.loaded) {
-                  return (<OptionItem select_func={select_func} items={governments} />)
-                }
-              })()
-            }
+            <OptionItem select_func={select_func} items={dataGovernments} />
           </div>
         </div>
       </div>
@@ -56,4 +27,14 @@ class HomeScreen extends React.Component {
   }
 }
 
-export default HomeScreen;
+const mapStateToProps = (state) => {
+  return {
+    dataGovernments: state.dataGovernments,
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

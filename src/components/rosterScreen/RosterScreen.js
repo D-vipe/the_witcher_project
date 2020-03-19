@@ -3,40 +3,38 @@ import OptionItem from '../optionItem/OptionItem';
 import TopRowCarousel from '../topRowCarousel/TopRowCarousel';
 import './RoasterScreen.sass';
 import data from '../../input.js';
+import {dropSecondScreen, setNewItemCollection} from '../../actions/dataProcess';
+import connect from "react-redux/es/connect/connect";
 
 class RosterScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectElements: {},
-      targetId: null,
-      parentId: null,
-      currentIndex: 0,
-      loaded: false
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     selectElements: {},
+  //     targetId: null,
+  //     parentId: null,
+  //     currentIndex: 0,
+  //     loaded: false
+  //   }
+  // }
 
   componentDidMount() {
-    if (!this.state.loaded) {
-      /**
-       * check if the state.loaded is false
-       * and form necessary data array to be rendered
-       */
-      this.collectData();
-    }
+    this.collectData();
+    // if (!this.state.loaded) {
+    //   /**
+    //    * check if the state.loaded is false
+    //    * and form necessary data array to be rendered
+    //    */
+    //
+    // }
   }
 
 
   handleNavigation = (targetId, parentId) => {
     let elements = this.getCurrentElements(data, parentId, targetId);
-    console.log(targetId);
-    console.log(parentId);
+
     if (elements !== undefined) {
-      this.setState({
-        selectElements: elements,
-        parentId: parentId,
-        targetId: targetId,
-      })
+      this.props.setNewItemCollection(elements, parentId, targetId, true);
     }
   };
 
@@ -65,12 +63,7 @@ class RosterScreen extends React.Component {
     parentId = this.getParentId(data, targetId);
     elements = this.getCurrentElements(data, parentId, targetId);
 
-    this.setState({
-      selectElements: elements,
-      parentId: parentId,
-      targetId: targetId,
-      loaded: true
-    });
+    this.props.setNewItemCollection(elements, parentId, targetId, true);
   }
 
   /**
@@ -127,9 +120,12 @@ class RosterScreen extends React.Component {
         elements.children.push(item);
       }
     });
-    // console.log(elements);
     return elements;
   }
+
+  returnHome = () => {
+    this.props.dropSecondScreen(false, null);
+  };
 
 
   /**
@@ -149,7 +145,6 @@ class RosterScreen extends React.Component {
   }
 
   render () {
-    let backFunc = this.props.backFunc;
     return (
       <div className="roster-screen">
         <div className="container">
@@ -160,22 +155,20 @@ class RosterScreen extends React.Component {
             <div className="col-8">
               {
                 (() => {
-                  if(this.state.loaded) {
-                    return (<TopRowCarousel neighbours={this.state.selectElements.neighbours}
-                                            target={this.state.selectElements.target}
-                                            navigationFunc={this.handleNavigation}/>)
+                  if(this.props.loaded) {
+                    return (<TopRowCarousel navigationFunc={this.handleNavigation}/>)
                   }
                 })()
               }
 
             </div>
             <div className="col-2 d-flex align-items-top justify-content-end">
-              <button className="homeButton" onClick={backFunc}> </button>
+              <button className="homeButton" onClick={this.returnHome}> </button>
             </div>
           </div>
           {
             (() => {
-              if(this.state.loaded && this.state.selectElements.children.length > 0) {
+              if(this.props.loaded && this.props.selectElements.children.length > 0) {
                 return ( <div className="d-flex w-100 justify-content-center timeline-block">
                 </div>)
               }
@@ -184,9 +177,9 @@ class RosterScreen extends React.Component {
           <div className="row">
             {
               (() => {
-                if(this.state.loaded) {
+                if(this.props.loaded) {
                   return (<OptionItem select_func={this.handleNavigation}
-                                      items={this.state.selectElements.children}/>)
+                                      items={this.props.selectElements.children}/>)
                 }
               })()
             }
@@ -197,4 +190,25 @@ class RosterScreen extends React.Component {
   }
 }
 
-export default RosterScreen;
+const mapStateToProps = (state) => {
+  return {
+    dataGovernments: state.dataGovernments,
+    selectElements: state.selectElements,
+    targetId: state.targetId,
+    parentId: state.parentId,
+    currentIndex: state.currentIndex,
+    loaded: state.loaded
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setNewItemCollection: (selectElements, parentId, targetId, loaded) => {
+      dispatch(setNewItemCollection(selectElements, parentId, targetId, loaded))
+    },
+    dropSecondScreen: (screen, target) => { dispatch(dropSecondScreen(screen, target)) }
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(RosterScreen);

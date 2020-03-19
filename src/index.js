@@ -18,7 +18,6 @@ const saveState = (state) => {
     // Log errors here, or ignore
   }
 };
-// console.log(window.localStorage);
 const store = createStore(rootReducer);
 
 /**

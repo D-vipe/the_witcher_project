@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import getImageUrl from '../../common_js/helper';
+import {setCarouselState} from "../../actions/dataProcess";
+import connect from "react-redux/es/connect/connect";
 
 class TopRowCarousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false,
       itemIdx: null,
       targetItem: null
     }
   }
 
   componentDidMount() {
-    let target = this.props.target;
-
-    if (!this.state.loaded && target !==undefined) {
+    if (!this.props.loadedCarousel && this.props.target !==undefined) {
       this.prepareAndSetState();
     }
   }
 
-  componentDidUpdate(prevProps) {
-    let target = this.props.target;
-
-    if (parseInt(target.id) !== parseInt(prevProps.target.id)) {
+  componentDidUpdate(prevProps, nextProps) {
+    if (parseInt(this.props.target.id) !== parseInt(prevProps.target.id)) {
       this.prepareAndSetState();
     }
   }
@@ -40,11 +37,12 @@ class TopRowCarousel extends Component {
       }
     });
 
-    this.setState({
-      loaded: true,
-      itemIdx: targetIdx,
-      targetItem: target
-    })
+    this.props.setCarouselState(targetIdx, target, true);
+    // this.setState({
+    //   loadedCarousel: true,
+    //   itemIdx: targetIdx,
+    //   targetItem: target
+    // })
   }
 
   scrollNavigation = (action) => {
@@ -52,17 +50,18 @@ class TopRowCarousel extends Component {
       neighbours,
       navigationFunc
     } = this.props,
-        arraLength = neighbours.length,
+        arrayLength = neighbours.length,
         new_index = 0;
+
     if (action === 'increment') {
-      new_index = parseInt(this.state.itemIdx) + 1;
-      if (new_index > (arraLength - 1)) {
+      new_index = parseInt(this.props.itemIdx) + 1;
+      if (new_index > (arrayLength - 1)) {
         new_index = 0;
       }
     } else {
-      new_index = parseInt(this.state.itemIdx) - 1;
+      new_index = parseInt(this.props.itemIdx) - 1;
       if (new_index < 0) {
-        new_index = arraLength - 1
+        new_index = arrayLength - 1
       }
     }
 
@@ -84,8 +83,8 @@ class TopRowCarousel extends Component {
           <div className="target-logo">
             {
               (() => {
-                if(this.state.loaded)
-                  return (<img src={getImageUrl(this.state.targetItem.image)}
+                if(this.props.loadedCarousel)
+                  return (<img src={getImageUrl(this.props.targetItem.image)}
                                alt="pic" className="navigationTargetImg" id="navigationTargetImg"/>)
               })()
             }
@@ -98,8 +97,8 @@ class TopRowCarousel extends Component {
           <p className="text-center">
             {
               (() => {
-                if(this.state.loaded)
-                  return (this.state.targetItem.name)
+                if(this.props.loadedCarousel)
+                  return (this.props.targetItem.name)
               })()
             }
           </p>
@@ -109,4 +108,23 @@ class TopRowCarousel extends Component {
   }
 }
 
-export default TopRowCarousel;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    neighbours: state.selectElements.neighbours,
+    target: state.selectElements.target,
+    itemIdx: state.itemIdx,
+    targetItem: state.targetItem,
+    loadedCarousel: state.loadedCarousel
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCarouselState: (itemIdx, targetItem, loadedCarousel) => {
+      dispatch(setCarouselState(itemIdx, targetItem, loadedCarousel))
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopRowCarousel);

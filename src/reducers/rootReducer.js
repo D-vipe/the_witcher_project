@@ -1,8 +1,14 @@
-console.log(window.localStorage.app_state);
 let initState = {
   dataGovernments: [],
   secondScreen: false,
-  currentTarget: null
+  targetId: null,
+  selectElements: {},
+  parentId: null,
+  currentIndex: 0,
+  itemIdx: null,
+  targetItem: null,
+  loaded: false,
+  loadedCarousel: false
 };
 
 if (window.localStorage.app_state !== undefined) {
@@ -22,9 +28,36 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       secondScreen: action.secondScreen,
-      currentTarget: action.currentTarget
+      targetId: action.targetId
     }
   }
+
+  if (action.type === 'DROP_SECONDSCREEN') {
+    return {
+      ...state,
+      secondScreen: action.secondScreen,
+      targetId: action.targetId
+    }
+  }
+
+  if (action.type === 'SET_ITEM_COLLECTION') {
+    return {
+      ...state,
+      selectElements: action.selectElements,
+      parentId: action.parentId,
+      targetId: action.targetId,
+      loaded: action.loaded
+    }
+  }
+  if (action.type === 'SET_CAROUSEL_STATE') {
+    return {
+      ...state,
+      itemIdx: action.itemIdx,
+      targetItem: action.targetItem,
+      loadedCarousel: action.loadedCarousel,
+    }
+  }
+
   return state;
 };
 
