@@ -109,7 +109,6 @@ class TopRowCarousel extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     neighbours: state.selectElements.neighbours,
     target: state.selectElements.target,

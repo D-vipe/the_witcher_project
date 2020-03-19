@@ -3,30 +3,25 @@ import OptionItem from '../optionItem/OptionItem';
 import TopRowCarousel from '../topRowCarousel/TopRowCarousel';
 import './RoasterScreen.sass';
 import data from '../../input.js';
-import {dropSecondScreen, setNewItemCollection} from '../../actions/dataProcess';
+import {
+  dropSecondScreen,
+  setNewItemCollection,
+  setTargetHistory,
+  clearTargetHistory,
+  historyTargetBack
+} from '../../actions/dataProcess';
 import connect from "react-redux/es/connect/connect";
 
 class RosterScreen extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     selectElements: {},
-  //     targetId: null,
-  //     parentId: null,
-  //     currentIndex: 0,
-  //     loaded: false
-  //   }
-  // }
 
   componentDidMount() {
     this.collectData();
-    // if (!this.state.loaded) {
-    //   /**
-    //    * check if the state.loaded is false
-    //    * and form necessary data array to be rendered
-    //    */
-    //
-    // }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.targetId !== prevProps.targetId) {
+      this.collectData();
+    }
   }
 
 
@@ -35,6 +30,7 @@ class RosterScreen extends React.Component {
 
     if (elements !== undefined) {
       this.props.setNewItemCollection(elements, parentId, targetId, true);
+      this.props.setTargetHistory(targetId);
     }
   };
 
@@ -44,7 +40,7 @@ class RosterScreen extends React.Component {
    */
   handleBackAction = () => {
     console.log('back action');
-    // this.props.history.goBack();
+    this.props.historyTargetBack();
   };
 
   /**
@@ -64,6 +60,7 @@ class RosterScreen extends React.Component {
     elements = this.getCurrentElements(data, parentId, targetId);
 
     this.props.setNewItemCollection(elements, parentId, targetId, true);
+    this.props.setTargetHistory(targetId);
   }
 
   /**
@@ -125,6 +122,7 @@ class RosterScreen extends React.Component {
 
   returnHome = () => {
     this.props.dropSecondScreen(false, null);
+    this.props.clearTargetHistory();
   };
 
 
@@ -206,7 +204,10 @@ const mapDispatchToProps = (dispatch) => {
     setNewItemCollection: (selectElements, parentId, targetId, loaded) => {
       dispatch(setNewItemCollection(selectElements, parentId, targetId, loaded))
     },
-    dropSecondScreen: (screen, target) => { dispatch(dropSecondScreen(screen, target)) }
+    dropSecondScreen: (screen, target) => { dispatch(dropSecondScreen(screen, target)) },
+    setTargetHistory: (targetId) => { dispatch(setTargetHistory(targetId)) },
+    clearTargetHistory: () => { dispatch(clearTargetHistory()) },
+    historyTargetBack: () => { dispatch(historyTargetBack()) }
   }
 };
 

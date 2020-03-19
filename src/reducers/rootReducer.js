@@ -1,4 +1,5 @@
 let initState = {
+  targetHistory: [],
   dataGovernments: [],
   secondScreen: false,
   targetId: null,
@@ -8,7 +9,8 @@ let initState = {
   itemIdx: null,
   targetItem: null,
   loaded: false,
-  loadedCarousel: false
+  loadedCarousel: false,
+  previousTargetId: null
 };
 
 if (window.localStorage.app_state !== undefined) {
@@ -32,11 +34,65 @@ const rootReducer = (state = initState, action) => {
     }
   }
 
+  if (action.type === 'SET_TARGET_HISTORY') {
+    let history = state.targetHistory;
+    if (history.length > 0) {
+      if (history[history.length - 1] !== action.targetId) {
+        history.push(action.targetId);
+      }
+    } else {
+      history.push(action.targetId);
+    }
+    return {
+      ...state,
+      targetHistory: [
+        ...history
+      ]
+    }
+  }
+
+  if (action.type === 'HISTORY_TARGET_BACK') {
+    let history = state.targetHistory,
+        new_target_id = null,
+        loaded = true,
+        loadedCarousel = true,
+        second_screen = true;
+
+    if (history.length > 1) {
+      history.pop();
+      new_target_id = history[history.length - 1];
+    } else {
+      history = [];
+      loaded = false;
+      loadedCarousel = false;
+      second_screen = false;
+    }
+
+    return {
+      ...state,
+      targetId: new_target_id,
+      loaded: loaded,
+      loadedCarousel: loadedCarousel,
+      secondScreen: second_screen,
+      targetHistory: [
+        ...history
+      ]
+    }
+  }
+
+  if (action.type === 'CLEAR_TARGET_HISTORY') {
+    return {
+      ...state,
+      targetHistory: []
+    }
+  }
+
   if (action.type === 'DROP_SECONDSCREEN') {
     return {
       ...state,
       secondScreen: action.secondScreen,
-      targetId: action.targetId
+      targetId: action.targetId,
+      targetHistory: []
     }
   }
 

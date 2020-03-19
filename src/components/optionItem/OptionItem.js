@@ -1,22 +1,14 @@
 import React from 'react';
 import './OptionItem.sass';
+import getImageUrl from '../../common_js/helper';
 
 class OptionItem extends React.Component {
-
-  static checkImgSource(img_url) {
-    try{
-      return require('../../images/' + img_url);
-    }
-    catch(err){
-      return require('../../images/fake_img.png');
-    }
-  }
 
   render() {
     let select_func = this.props.select_func;
 
     let items = this.props.items.map(item => {
-      let image_src = OptionItem.checkImgSource(item.image);
+      let image_src = getImageUrl(item.image);
       return (
         <div onClick={select_func.bind(this, item.id, item.parent)} data-id={item.id} key={`image_block_${item.id}`} className="element-select__item">
           <div className="img-wrapper">

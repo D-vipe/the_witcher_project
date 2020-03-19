@@ -4,7 +4,8 @@ import RosterScreen from './components/rosterScreen/RosterScreen';
 import { connect } from 'react-redux';
 import {
   setTopRowElements,
-  setSecondScreen
+  setSecondScreen,
+  setTargetHistory
 } from './actions/dataProcess';
 import './common_css/App.sass';
 import data from './input.js';
@@ -24,9 +25,15 @@ class App extends React.Component {
   handleItemSelect = (itemId) => {
     if (!this.props.secondScreen) {
       this.props.setSecondScreen(true, itemId);
+      this.props.setTargetHistory(itemId);
     }
   };
 
+  /**
+   * @description function makes the first data selection;
+   *  Selects top-level elements to show on the first screen
+   * @returns {Array}
+   */
   getGovernments() {
     if (data !== undefined || data !== null) {
       let governments = [];
@@ -72,7 +79,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setTopRowElements: (data) => { dispatch(setTopRowElements(data)) },
-    setSecondScreen: (screen, target) => { dispatch(setSecondScreen(screen, target)) }
+    setSecondScreen: (screen, target) => { dispatch(setSecondScreen(screen, target)) },
+    setTargetHistory: (targetId) => { dispatch(setTargetHistory(targetId)) }
   }
 };
 
