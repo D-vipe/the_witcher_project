@@ -24,8 +24,8 @@ class RosterScreen extends React.Component {
     }
   }
 
-
   handleNavigation = (targetId, parentId) => {
+    console.log('handle navigation roaster');
     let elements = this.getCurrentElements(data, parentId, targetId);
 
     if (elements !== undefined) {
@@ -39,7 +39,6 @@ class RosterScreen extends React.Component {
    * for history back action
    */
   handleBackAction = () => {
-    console.log('back action');
     this.props.historyTargetBack();
   };
 
@@ -56,8 +55,8 @@ class RosterScreen extends React.Component {
       parentId,
       elements;
 
-    parentId = this.getParentId(data, targetId);
-    elements = this.getCurrentElements(data, parentId, targetId);
+    // parentId = this.getParentId(data, targetId);
+    elements = this.getCurrentElements();
 
     this.props.setNewItemCollection(elements, parentId, targetId, true);
     this.props.setTargetHistory(targetId);
@@ -84,32 +83,35 @@ class RosterScreen extends React.Component {
    * @param  {string} parentId parent id value of the target element
    * @return {{target: {}, neighbours: Array, children: Array}} elements new array to render roaster screen
    */
-  getCurrentElements(data, parentId, targetId) {
+  getCurrentElements() {
     let elements = {
       target: {},
       neighbours: [],
       children: []
     };
+
+    console.log('parent: ' + this.props.parentId);
+    console.log('targetId: ' + this.props.targetId);
     /**
      * go through the data props to get target item's neighbours (same level),
      * children and set target item as well
      */
     data.forEach(item => {
-      if (item.id === parseInt(targetId)) {
+      if (item.id === parseInt(this.props.targetId)) {
         elements.target = item;
       }
 
-      if (parentId === null || parentId === undefined) {
+      if (this.props.parentId === null || this.props.parentId === undefined) {
         if (item.parent === undefined) {
           elements.neighbours.push(item);
         }
       } else {
-        if (item.parent === parseInt(parentId)) {
+        if (item.parent === parseInt(this.props.parentId)) {
           elements.neighbours.push(item);
         }
       }
 
-      if (item.parent === parseInt(targetId)) {
+      if (item.parent === parseInt(this.props.targetId)) {
         /*
         add new value to object items
          */
@@ -154,7 +156,7 @@ class RosterScreen extends React.Component {
               {
                 (() => {
                   if(this.props.loaded) {
-                    return (<TopRowCarousel navigationFunc={this.handleNavigation}/>)
+                    return (<TopRowCarousel navigationFunc={this.handleNavigation} />)
                   }
                 })()
               }

@@ -17,12 +17,20 @@ class App extends React.Component {
     this.props.setTopRowElements(processedData);
   }
 
+  componentDidUpdate() {
+    if (window.localStorage.app_state === undefined || JSON.parse(window.localStorage.app_state).dataGovernments.length === 0) {
+      let processedData = this.getGovernments();
+      this.props.setTopRowElements(processedData);
+    }
+  }
+
   /**
    * @param itemId
    * function listening to click on item selection
    * changes props to render second screen
    */
   handleItemSelect = (itemId) => {
+    console.log('item select app.js');
     if (!this.props.secondScreen) {
       this.props.setSecondScreen(true, itemId);
       this.props.setTargetHistory(itemId);

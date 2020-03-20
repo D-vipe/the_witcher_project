@@ -13,7 +13,7 @@ let initState = {
   previousTargetId: null
 };
 
-if (window.localStorage.app_state !== undefined) {
+if (window.localStorage.app_state !== undefined && window.localStorage.app_state !== null) {
   initState = JSON.parse(window.localStorage.app_state);
 }
 
@@ -83,6 +83,7 @@ const rootReducer = (state = initState, action) => {
   if (action.type === 'CLEAR_TARGET_HISTORY') {
     return {
       ...state,
+      secondScreen: false,
       targetHistory: []
     }
   }
@@ -97,11 +98,13 @@ const rootReducer = (state = initState, action) => {
   }
 
   if (action.type === 'SET_ITEM_COLLECTION') {
+    console.log(action.selectElements);
     return {
       ...state,
       selectElements: action.selectElements,
       parentId: action.parentId,
       targetId: action.targetId,
+      targetItem: action.selectElements.target,
       loaded: action.loaded
     }
   }

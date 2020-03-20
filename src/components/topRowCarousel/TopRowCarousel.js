@@ -4,54 +4,39 @@ import {setCarouselState} from "../../actions/dataProcess";
 import connect from "react-redux/es/connect/connect";
 
 class TopRowCarousel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itemIdx: null,
-      targetItem: null
-    }
-  }
 
   componentDidMount() {
-    if (!this.props.loadedCarousel && this.props.target !==undefined) {
+    if (!this.props.loadedCarousel && this.props.targetItem !==undefined) {
       this.prepareAndSetState();
     }
   }
 
   componentDidUpdate(prevProps, nextProps) {
-    if (parseInt(this.props.target.id) !== parseInt(prevProps.target.id)) {
+    if (parseInt(this.props.targetItem.id) !== parseInt(prevProps.targetItem.id)) {
       this.prepareAndSetState();
     }
   }
 
   prepareAndSetState() {
-    let  {
-      neighbours,
-      target
-    } = this.props,
-      targetIdx = null;
+    let targetIdx = null;
 
-    neighbours.forEach(item => {
-      if (parseInt(item.id) === parseInt(target.id)) {
-        targetIdx = neighbours.indexOf(item);
+    this.props.selectElements.neighbours.forEach(item => {
+      if (parseInt(item.id) === parseInt(this.props.targetItem.id)) {
+        targetIdx = this.props.selectElements.neighbours.indexOf(item);
       }
     });
 
-    this.props.setCarouselState(targetIdx, target, true);
-    // this.setState({
-    //   loadedCarousel: true,
-    //   itemIdx: targetIdx,
-    //   targetItem: target
-    // })
+    this.props.setCarouselState(targetIdx, this.props.targetItem, true);
   }
 
   scrollNavigation = (action) => {
     let {
-      neighbours,
       navigationFunc
     } = this.props,
+        neighbours = this.props.selectElements.neighbours,
         arrayLength = neighbours.length,
         new_index = 0;
+
 
     if (action === 'increment') {
       new_index = parseInt(this.props.itemIdx) + 1;
@@ -65,10 +50,11 @@ class TopRowCarousel extends Component {
       }
     }
 
-    this.setState({
-      itemIdx: new_index,
-      targetItem: neighbours[new_index]
-    });
+    // this.setState({
+    //   itemIdx: new_index,
+    //   targetItem: neighbours[new_index]
+    // });
+    this.props.setCarouselState(new_index, neighbours[new_index], true);
 
     navigationFunc(neighbours[new_index].id, neighbours[new_index].parent)
   };
@@ -77,9 +63,18 @@ class TopRowCarousel extends Component {
     return (
       <div className="navigation-block">
         <div className="navigation-block__controls">
-                  <span className="navigation-link__left" onClick={ ()=>{this.scrollNavigation('decrement')} }>
+          {
+            (() => {
+              if (this.props.loadedCarousel && this.props.selectElements.neighbours) {
+                if (this.props.selectElements.neighbours.length > 1) {
+                  return (<span className="navigation-link__left" onClick={ ()=>{this.scrollNavigation('decrement')} }>
                     <img src={require('./img/vector_arrow.png')} alt=""/>
-                  </span>
+                  </span>);
+                }
+              }
+            })()
+          }
+
           <div className="target-logo">
             {
               (() => {
@@ -89,9 +84,19 @@ class TopRowCarousel extends Component {
               })()
             }
           </div>
-          <span className="navigation-link__right" onClick={ () => {this.scrollNavigation('increment')} } >
+
+          {
+            (() => {
+              if (this.props.loadedCarousel && this.props.selectElements.neighbours) {
+                if (this.props.selectElements.neighbours.length > 1) {
+                  return (<span className="navigation-link__right" onClick={ () => {this.scrollNavigation('increment')} } >
                     <img src={require('./img/vector_arrow.png')} alt=""/>
-                  </span>
+                  </span>);
+                }
+              }
+            })()
+          }
+
         </div>
         <div className="curr-target-name">
           <p className="text-center">
@@ -110,8 +115,7 @@ class TopRowCarousel extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    neighbours: state.selectElements.neighbours,
-    target: state.selectElements.target,
+    selectElements: state.selectElements,
     itemIdx: state.itemIdx,
     targetItem: state.targetItem,
     loadedCarousel: state.loadedCarousel

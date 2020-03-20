@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d99935a0-3776-4017-918c-fd97583a1680" name="Default Changelist" comment="">
+    <list default="true" id="d99935a0-3776-4017-918c-fd97583a1680" name="Default Changelist" comment="back action implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/dataProcess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/dataProcess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/rootReducer.js" afterDir="false" />
@@ -70,18 +69,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="72" />
-          <entry key="js" value="18093" />
+          <entry key="js" value="19659" />
           <entry key="jsx" value="23" />
           <entry key="sass" value="3577" />
-          <entry key="txt" value="93" />
+          <entry key="txt" value="116" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="75" />
           <entry key="JSX Harmony" value="23" />
-          <entry key="JavaScript" value="18090" />
-          <entry key="PLAIN_TEXT" value="93" />
+          <entry key="JavaScript" value="19656" />
+          <entry key="PLAIN_TEXT" value="116" />
           <entry key="Sass" value="3577" />
         </counts>
       </usages-collector>
@@ -92,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+            <state relative-caret-position="322">
+              <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -113,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="68">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -125,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="86" column="47" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="47" />
+            <state relative-caret-position="368">
+              <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -140,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="37" column="8" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="8" />
+            <state relative-caret-position="221">
+              <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -161,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/actions/dataProcess.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1836">
-              <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+            <state relative-caret-position="864">
+              <caret line="99" column="18" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -182,8 +181,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/rootReducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+            <state relative-caret-position="286">
+              <caret line="101" column="12" lean-forward="true" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -192,12 +191,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>topRow</find>
-      <find>navigationFunc</find>
-      <find>homeButton</find>
-      <find>loaded</find>
-      <find>setTopRowElements</find>
-      <find>returnHome</find>
       <find>Current</find>
       <find>currentTarget</find>
       <find>targetId</find>
@@ -205,27 +198,34 @@
       <find>setState</find>
       <find>selectItems</find>
       <find>handleNavigation</find>
-      <find>SET_CAROUSEL_STATE</find>
-      <find>target</find>
-      <find>neighbours</find>
       <find>currentIndex</find>
-      <find>setNewItemCollection</find>
       <find>dropSecondScreen</find>
       <find>clearTargetHistory</find>
       <find>collectData</find>
       <find>console</find>
-      <find>console.log</find>
-      <find>targetIdx</find>
-      <find>state</find>
       <find>image</find>
-      <find>targetItem</find>
-      <find>setTargetHistory</find>
-      <find>getImageUrl</find>
       <find>check</find>
+      <find>getImageUrl</find>
+      <find>targetIdx</find>
+      <find>navigationFunc</find>
+      <find>console.log</find>
+      <find>SET_CAROUSEL_STATE</find>
+      <find>console.log()</find>
+      <find>prepareAndSetState</find>
+      <find>itemIdx</find>
+      <find>target</find>
+      <find>targetItem</find>
+      <find>setNewItemCollection</find>
+      <find>state</find>
+      <find>setTargetHistory</find>
+      <find>this.state</find>
+      <find>selectElements</find>
+      <find>neighbours</find>
     </findStrings>
     <replaceStrings>
       <replace>RosterScreen</replace>
       <replace>small-laptop</replace>
+      <replace>itemIdx</replace>
       <replace>arrayLength</replace>
     </replaceStrings>
   </component>
@@ -252,12 +252,12 @@
         <option value="$PROJECT_DIR$/src/components/rosterScreen/RoasterScreen.sass" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/homeScreen/HomeScreen.js" />
-        <option value="$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js" />
-        <option value="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" />
-        <option value="$PROJECT_DIR$/src/reducers/rootReducer.js" />
+        <option value="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" />
         <option value="$PROJECT_DIR$/src/actions/dataProcess.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/optionItem/OptionItem.js" />
+        <option value="$PROJECT_DIR$/src/reducers/rootReducer.js" />
+        <option value="$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js" />
       </list>
     </option>
   </component>
@@ -472,7 +472,7 @@
       <workItem from="1584397386052" duration="489000" />
       <workItem from="1584472779804" duration="4075000" />
       <workItem from="1584564656995" duration="3369000" />
-      <workItem from="1584648369113" duration="10548000" />
+      <workItem from="1584648369113" duration="16902000" />
     </task>
     <task id="LOCAL-00001" summary="prepare to rework concept">
       <created>1584261453801</created>
@@ -509,11 +509,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584656134665</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="back action implemented">
+      <created>1584659426277</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584659426277</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76688000" />
+    <option name="totallyTimeSpent" value="83042000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -569,7 +576,8 @@
     <MESSAGE value="prepare to rework concept" />
     <MESSAGE value="hide timeline img if there is no child elements" />
     <MESSAGE value="implementing redux" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing redux" />
+    <MESSAGE value="back action implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="back action implemented" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/webpack.config.js" />
@@ -692,24 +700,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/rootReducer.js">
+    <entry file="file://$PROJECT_DIR$/src/common_js/helper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+        <state>
+          <caret column="35" selection-start-column="24" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/dataProcess.js">
+    <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -726,39 +727,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="8" />
+        <state relative-caret-position="322">
+          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common_js/helper.js">
+    <entry file="file://$PROJECT_DIR$/src/actions/dataProcess.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="24" selection-end-column="35" />
+        <state relative-caret-position="864">
+          <caret line="99" column="18" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/rootReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="101" column="12" lean-forward="true" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/rosterScreen/RosterScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/topRowCarousel/TopRowCarousel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="86" column="47" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="47" />
+        <state relative-caret-position="368">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/optionItem/OptionItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -97,7 +97,7 @@ export const dropSecondScreen = (secondScreen, targetId) => {
 export const setNewItemCollection = (selectElements, parentId, targetId, loaded) => {
   return {
     type: 'SET_ITEM_COLLECTION',
-    selectElements,
+    selectElements: selectElements,
     parentId,
     targetId,
     loaded
