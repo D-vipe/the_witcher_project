@@ -98,7 +98,6 @@ const rootReducer = (state = initState, action) => {
   }
 
   if (action.type === 'SET_ITEM_COLLECTION') {
-    console.log(action.selectElements);
     return {
       ...state,
       selectElements: action.selectElements,

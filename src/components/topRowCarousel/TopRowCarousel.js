@@ -17,6 +17,10 @@ class TopRowCarousel extends Component {
     }
   }
 
+  /**
+   * @description function that runs through the array of elements of the same level and
+   * finds the index of the current target.
+   */
   prepareAndSetState() {
     let targetIdx = null;
 
@@ -29,6 +33,11 @@ class TopRowCarousel extends Component {
     this.props.setCarouselState(targetIdx, this.props.targetItem, true);
   }
 
+
+  /**
+   * @description Function to handle carousel navigation between elements of the same level
+   * @param action
+   */
   scrollNavigation = (action) => {
     let {
       navigationFunc
@@ -50,10 +59,6 @@ class TopRowCarousel extends Component {
       }
     }
 
-    // this.setState({
-    //   itemIdx: new_index,
-    //   targetItem: neighbours[new_index]
-    // });
     this.props.setCarouselState(new_index, neighbours[new_index], true);
 
     navigationFunc(neighbours[new_index].id, neighbours[new_index].parent)

@@ -30,7 +30,6 @@ class App extends React.Component {
    * changes props to render second screen
    */
   handleItemSelect = (itemId) => {
-    console.log('item select app.js');
     if (!this.props.secondScreen) {
       this.props.setSecondScreen(true, itemId);
       this.props.setTargetHistory(itemId);

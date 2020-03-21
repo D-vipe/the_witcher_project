@@ -25,8 +25,7 @@ class RosterScreen extends React.Component {
   }
 
   handleNavigation = (targetId, parentId) => {
-    console.log('handle navigation roaster');
-    let elements = this.getCurrentElements(data, parentId, targetId);
+    let elements = this.getCurrentElements(parentId);
 
     if (elements !== undefined) {
       this.props.setNewItemCollection(elements, parentId, targetId, true);
@@ -35,8 +34,8 @@ class RosterScreen extends React.Component {
   };
 
   /**
-   * simple buttonclick handler
-   * for history back action
+   * call redux action to control history flow and
+   * return back to previous chosen item id
    */
   handleBackAction = () => {
     this.props.historyTargetBack();
@@ -44,34 +43,33 @@ class RosterScreen extends React.Component {
 
   /**
    * An aggregate function to collect data from
-   * seperate small functions
+   * separate smaller functions
    *
-   * retuns new state with all necessary data set
+   * sets new collection of items in the redux state
+   * and adds items to history state
    */
   collectData() {
-    let {
-      targetId
-    } = this.props,
-      parentId,
-      elements;
+    let parentId = this.getParentId(data, this.props.targetId),
+        elements = this.getCurrentElements(parentId);
 
-    // parentId = this.getParentId(data, targetId);
-    elements = this.getCurrentElements();
-
-    this.props.setNewItemCollection(elements, parentId, targetId, true);
-    this.props.setTargetHistory(targetId);
+    this.props.setNewItemCollection(elements, parentId, this.props.targetId, true);
+    this.props.setTargetHistory(this.props.targetId);
   }
 
   /**
    * @param  {array} data props data passed from the parent component
-   * @param  {string} targetId id of the clicked block
+   * @param  {string} targetId id of the block clicked
    * @return {string} parentId parent id value of the target element
+   *
+   * we need to use this instead of using parentId value from props because after
+   * history back action the only thing we can update in the current app is targetId value,
+   * so we need to get parentId once again to avoid mistakes
    */
   getParentId(data, targetId) {
     let parentId = null;
     data.forEach(item => {
       if (item.id === parseInt(targetId)) {
-        return item.id;
+        parentId = item.parent;
       }
     });
     return parentId;
@@ -83,30 +81,28 @@ class RosterScreen extends React.Component {
    * @param  {string} parentId parent id value of the target element
    * @return {{target: {}, neighbours: Array, children: Array}} elements new array to render roaster screen
    */
-  getCurrentElements() {
+  getCurrentElements(parentId) {
     let elements = {
       target: {},
       neighbours: [],
       children: []
     };
 
-    console.log('parent: ' + this.props.parentId);
-    console.log('targetId: ' + this.props.targetId);
     /**
      * go through the data props to get target item's neighbours (same level),
-     * children and set target item as well
+     * children and set target item
      */
     data.forEach(item => {
       if (item.id === parseInt(this.props.targetId)) {
         elements.target = item;
       }
 
-      if (this.props.parentId === null || this.props.parentId === undefined) {
+      if (parentId === null || parentId === undefined) {
         if (item.parent === undefined) {
           elements.neighbours.push(item);
         }
       } else {
-        if (item.parent === parseInt(this.props.parentId)) {
+        if (item.parent === parseInt(parentId)) {
           elements.neighbours.push(item);
         }
       }
@@ -131,7 +127,7 @@ class RosterScreen extends React.Component {
   /**
    * @param  {object} item single item from data array
    * @param  {array} data array of objects passed from the parent component
-   * @return {int} count counted amount of all vassal of the current item
+   * @return {int} count amount of all vassals of the current target
    */
   getCountVassals(item, data){
     let count = 0;
