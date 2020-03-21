@@ -93,6 +93,7 @@ class RosterScreen extends React.Component {
      * children and set target item
      */
     data.forEach(item => {
+      item.vassals = this.getCountVassals(item, data);
       if (item.id === parseInt(this.props.targetId)) {
         elements.target = item;
       }
@@ -111,7 +112,6 @@ class RosterScreen extends React.Component {
         /*
         add new value to object items
          */
-        item.vassals = this.getCountVassals(item, data);
         elements.children.push(item);
       }
     });

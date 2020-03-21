@@ -12,19 +12,22 @@ class OptionItem extends React.Component {
       return (
         <div onClick={select_func.bind(this, item.id, item.parent)} data-id={item.id} key={`image_block_${item.id}`} className="element-select__item">
           <div className="img-wrapper">
-            <img src={image_src} alt="pic" className="topRowVassal"/>
+            <div style={{background: `url(${image_src}) center no-repeat`}} className="topRowVassal">
             {
               (() => {
-                if (item.vassals !== null && item.vassals !== undefined && item.vassals !== 0) {
-                  return ( <div className="vassal-count-wrapper">
-                           <span className="vassal-count">
-                              {item.vassals}
-                           </span>
+                if (item.vassals !== null && item.vassals !== undefined && item.vassals !== 0 &&
+                item.parent !== undefined) {
+                  return (
+                    <div className="vassal-count-wrapper">
+                       <span className="vassal-count">
+                          {item.vassals}
+                       </span>
                     </div>
                   )
                 }
               })()
             }
+            </div>
           </div>
 
           <p>{item.name}</p>

@@ -21,7 +21,7 @@
   +tablet
     margin-top: 66px
   +small-laptop
-    margin-top: 60px
+    margin-top: 40px
   +medium-laptop
     margin-top: 60px
   &:hover
@@ -39,12 +39,14 @@
   +transition-opt('transform', '.3s')
   +mobile
     width: 40px
+    min-width: 40px
     height: 36px
+    min-height: 36px
     margin-top: 20px
   +tablet
     margin-top: 66px
   +small-laptop
-    margin-top: 60px
+    margin-top: 40px
   +medium-laptop
     margin-top: 60px
   &:hover
@@ -68,10 +70,14 @@
     margin-top: 90px
     margin-right: 60px
     margin-left: 0
+    cursor: pointer
+    z-index: 101
     +transition-opt('all', '.1s')
     +mobile
       padding: 5px 10px
       margin-right: 20px
+    +small-laptop
+      margin-top: 70px
 
     &:hover
       border: 1px solid rgba(219, 174, 100, 1)
@@ -82,6 +88,7 @@
     transform: rotate(180deg)
     margin-right: 0
     margin-left: 60px
+
     +mobile
       margin-left: 20px
 
@@ -92,6 +99,8 @@
     margin-top: 70px
     border: 3px solid #DBAE64
     border-radius: 50%
+    position: relative
+    background-size: contain!important
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     +transition-opt('all', '.8s')
@@ -103,11 +112,64 @@
     +small-laptop
       width: 243px
       height: 243px
-      margin-top: 60px
+      margin-top: 40px
     +medium-laptop
       width: 263px
       height: 263px
       margin-top: 60px
+
+    .vassal-count-wrapper
+      display: flex
+      align-items: center
+      justify-content: center
+      position: absolute
+      bottom: 0
+      left: 5px
+      background: url('../../images/count_bg.png') center no-repeat
+      width: 100px
+      height: 100px
+      z-index: 10
+      background-size: contain
+      +transition-opt('all', '.2s')
+      animation: smoothAppear 2s forwards
+      +mobile
+        width: 43px
+        height: 43px
+        background-size: contain
+        bottom: 0
+        left: 0
+      +tablet
+        left: -10px
+        bottom: 5px
+      +small-laptop
+        left: -10px
+        bottom: 3px
+        width: 70px
+        height: 70px
+        background-size: contain
+      +medium-laptop
+        left: -15px
+        bottom: 0
+        width: 80px
+        height: 80px
+        background-size: contain
+
+
+
+      .vassal-count
+        font-size: 34px
+        line-height: 1
+        margin-top: 0
+        +mobile
+          font-size: 14px
+        +tablet
+          font-size: 25px
+          margin-top: 0
+        +small-laptop
+          font-size: 24px
+        +medium-laptop
+          font-size: 28px
+
 
 .curr-target-name
   margin-top: 10px
@@ -118,11 +180,18 @@
       font-size: 41px
       line-height: 49px
     +small-laptop
-      font-size: 49px
-      line-height: 56px
+      font-size: 45px
+      line-height: 50px
     +medium-laptop
       font-size: 49px
       line-height: 56px
+    &.small-text-carousel
+      font-style: normal
+      font-weight: normal
+      font-size: 17px
+      line-height: 148.6%
+      text-align: center
+      letter-spacing: 0.035em
 
 .timeline-block
   height: 130.5px
@@ -135,6 +204,11 @@
   +tablet
     height: 130.5px
     margin-top: 10px
+  +small-laptop
+    margin-top: 5px
   +medium-laptop
     margin-top: 25px
     margin-bottom: 25px
+
+
+

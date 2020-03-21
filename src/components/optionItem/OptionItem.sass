@@ -15,6 +15,8 @@
   +tablet
     margin-top: 30px
     margin-bottom: 0
+  +small-laptop
+    margin-top: 35px
   +medium-laptop
     margin-top: 30px
     margin-bottom: 20px
@@ -24,6 +26,8 @@
     cursor: pointer
     text-decoration: none
     margin: 0 50px 25px
+    +transition-opt('all', '.4s')
+    animation: smoothAppear 3s forwards
     +mobile
       margin: 0 10px 25px
     +tablet
@@ -71,6 +75,8 @@
       border: 3px solid #DBAE64
       border-radius: 50%
       margin: 0 38.5px
+      position: relative
+      background-size: contain!important
       +transition-opt('all', '.2s')
       +mobile
         width: 100%
@@ -93,29 +99,29 @@
         max-height: 135px
 
     .img-wrapper
-      position: relative
+      //position: relative
       min-width: 200px
-      max-width: 200px
+      //max-width: 200px
       display: flex
       justify-content: center
       +mobile
         min-width: 140px
-        max-width: 140px
       +desktop
         min-width: auto
-        max-width: none
 
     .vassal-count-wrapper
       display: flex
       align-items: center
       justify-content: center
       position: absolute
-      bottom: -19px
-      left: 25px
-      background: url('./count_bg.png') center no-repeat
+      bottom: -10px
+      left: -15px
+      background: url('../../images/count_bg.png') center no-repeat
       width: 70px
       height: 70px
       z-index: 10
+      +transition-opt('all', '.2s')
+      animation: smoothAppear 2s forwards
       +mobile
         width: 43px
         height: 43px
@@ -123,22 +129,20 @@
         bottom: 0
         left: 0
       +tablet
-        left: 5px
-        bottom: -10px
+        left: -12px
+        bottom: -15px
       +small-laptop
-        left: 15px
+        left: -10px
         bottom: -15px
         width: 60px
         height: 60px
         background-size: contain
       +medium-laptop
-        left: 25px
-        bottom: -15px
+        left: -18px
+        bottom: -10px
         width: 60px
         height: 60px
         background-size: contain
-
-
 
       .vassal-count
         font-size: 29px

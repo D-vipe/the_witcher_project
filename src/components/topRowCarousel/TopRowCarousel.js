@@ -84,8 +84,29 @@ class TopRowCarousel extends Component {
             {
               (() => {
                 if(this.props.loadedCarousel)
-                  return (<img src={getImageUrl(this.props.targetItem.image)}
-                               alt="pic" className="navigationTargetImg" id="navigationTargetImg"/>)
+                  return (
+                    <div style={
+                      {background: `url(${getImageUrl(this.props.targetItem.image)}) center no-repeat`}
+                    }
+                         className="navigationTargetImg"
+                         id="navigationTargetImg">
+                      {
+                        (() => {
+                          if (this.props.targetItem.vassals !== null &&
+                            this.props.targetItem.vassals !== undefined && this.props.targetItem.vassals !== 0
+                            && this.props.targetItem.parent !== undefined) {
+                            return (
+                              <div className="vassal-count-wrapper">
+                       <span className="vassal-count">
+                          {this.props.targetItem.vassals}
+                       </span>
+                              </div>
+                            )
+                          }
+                        })()
+                      }
+                    </div>
+                      )
               })()
             }
           </div>
@@ -112,6 +133,12 @@ class TopRowCarousel extends Component {
               })()
             }
           </p>
+          {
+            (() => {
+              if(this.props.loadedCarousel && this.props.targetItem.post)
+                return (<p className="small-text-carousel">{this.props.targetItem.post}</p>)
+            })()
+          }
         </div>
       </div>
     )
